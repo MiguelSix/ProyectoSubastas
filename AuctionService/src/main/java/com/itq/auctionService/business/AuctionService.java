@@ -20,14 +20,48 @@ public class AuctionService {
 	public boolean validateAuction(CreateAuction auction) {
 
 		// Validar el ID del proveedor
-		if (auction.getProviderID().equals("")) {
+		if (auction.getProviderID().equals("") || auction.getProviderID().equals("?")) {
 			msg = "ERROR: El ID del proveedor no puede estar vacío";
 			return false;
 		}
 
+		if (!auction.getProviderID().matches("[0-9]+")) {
+			msg = "ERROR: El ID del proveedor solo puede contener numeros";
+			return false;
+		}
+
+		// Validar el precio inicial
+
+		if (auction.getInitialPrice() == null) {
+			msg = "ERROR: El precio inicial solo puede contener numeros";
+			return false;
+		}
+
+		if (auction.getInitialPrice().compareTo(BigDecimal.ZERO) < 0) {
+			msg = "ERROR: El precio inicial no puede ser negativo";
+			return false;
+		}
+		
+		// Validar el precio final
+		
+		if (auction.getFinalPrice() == null) {
+			msg = "ERROR: El precio inicial solo puede contener numeros";
+			return false;
+		}
+
+		if (auction.getFinalPrice().compareTo(BigDecimal.ZERO) < 0) {
+			msg = "ERROR: El precio final no puede ser negativo";
+			return false;
+		}
+
 		// Validar el ID del producto
-		if (auction.getProductID().equals("")) {
+		if (auction.getProductID().equals("") || auction.getProviderID().equals("?")) {
 			msg = "ERROR: El ID del producto no puede estar vacío";
+			return false;
+		}
+
+		if (!auction.getProductID().matches("[0-9]+")) {
+			msg = "ERROR: El ID del producto solo puede contener numeros";
 			return false;
 		}
 
