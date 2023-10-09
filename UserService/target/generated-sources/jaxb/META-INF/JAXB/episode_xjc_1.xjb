@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2023.10.09 a las 11:45:45 AM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://com.userSchema">
+    <schemaBindings map="false">
+      <package name="com.itq.autoService.dto"/>
+    </schemaBindings>
+    <bindings scd="tns:ack">
+      <class ref="com.itq.autoService.dto.Ack"/>
+    </bindings>
+    <bindings scd="tns:user">
+      <class ref="com.itq.autoService.dto.User"/>
+    </bindings>
+    <bindings scd="tns:consultUser">
+      <class ref="com.itq.autoService.dto.ConsultUser"/>
+    </bindings>
+    <bindings scd="tns:deleteUser">
+      <class ref="com.itq.autoService.dto.DeleteUser"/>
+    </bindings>
+    <bindings scd="tns:updateUser">
+      <class ref="com.itq.autoService.dto.UpdateUser"/>
+    </bindings>
+    <bindings scd="tns:createUser">
+      <class ref="com.itq.autoService.dto.CreateUser"/>
+    </bindings>
+  </bindings>
+</bindings>
+

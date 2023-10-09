@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://com.auctionSchema" targetNamespace="http://com.auctionSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<!-- Base element (auction)-->
+	<xs:element name="auction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionID" type="xs:ID"/>
+				<xs:element name="clientID" type="xs:ID"/>
+				<xs:element name="providerID" type="xs:ID"/>
+				<xs:element name="productID" type="xs:ID"/>
+				<xs:element name="auctionDate">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="initialPrice" type="xs:decimal"/>
+				<xs:element name="finalPrice" type="xs:decimal"/>
+				<xs:element name="status">
+				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Activa"/>
+							<xs:enumeration value="Inactiva"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Element for create an auction -->
+	<xs:element name="createAuction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionDate">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="initialPrice" type="xs:decimal"/>
+				<xs:element name="finalPrice" type="xs:decimal"/>
+                <xs:element name="productID" type="xs:ID"/>
+                <xs:element name="providerID" type="xs:ID"/>
+				<xs:element name="status">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Activa"/>
+							<xs:enumeration value="Inactiva"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Element for delete an auction -->
+	<xs:element name="deleteAuction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionID" type="xs:ID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Element for consult an auction-->
+	<xs:element name="consultAuction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionID" type="xs:ID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Element for modify an auction -->
+	<xs:element name="updateAuction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionID" type="xs:ID"/>
+				<xs:element name="newAuctionDate">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="newInitialPrice" type="xs:decimal"/>
+				<xs:element name="newFinalPrice" type="xs:decimal"/>
+				<xs:element name="newStatus">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Activa"/>
+							<xs:enumeration value="Inactiva"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
